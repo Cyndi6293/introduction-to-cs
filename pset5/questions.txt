@@ -1,0 +1,40 @@
+0.  A lung disease caused by the inhalation of very fine silica dust, causing inflammation in the lungs.s
+
+1.  int getrusage(int who, struct rusage *usage);
+    getrusage() returns resource usage measures for who, which can be:
+    RUSAGE_SELF
+    Return resource usage statistics for the calling process, which is the sum of resources
+    used by all threads in the process. 
+    
+2.  16
+
+3.  Maybe we use less memory in function "calculate", because pointer in appliance is 32 bits, and memory needed
+    to create actual copy of rusage structs for that function is somewhat more that 32 bits.
+
+4.  Get one char from the file at a time, cheack if char is a letter or apostroph(if it's not at the beeginning
+    of the word) if yes and we do not exceed max allowed length of word, we go on, otherwise we skip all chars,
+    untill we reach some char that doesn't look like letter (that must mean we will reach new word now) reset 
+    index and do not iterate word counter, so that we are processing same potential word and haven't found 
+    new one yet.
+    
+    If we found digit, we skip all letters and digits and letters after it untill we reach some different type
+    of character (space maybe, or newline) again reset counter.
+    
+    If we found some other character, then it might as well be whitespace or something, current word is comlete,
+    we send it to checker, calculate time to check, if misspelt, print it, increase word count, etc.
+    
+5.  We'll need to filter result of fscanf, search each string returned by fscanf for non-alphabetical symbols, 
+    check if string's too long, and only then we can call it a word. We'll need to check strings anyway.
+    
+    Might as well just scan each character at a time and do all the checking the way it's done.
+    
+6.  So that they (strings) won't get modified inside these functions.
+
+7.  Hash table, where each node is struct with pointer to next node, so data structure is array of linked lists.
+    
+8.  It was 0.02 seconds slower than cs50 staff's implementation.
+
+9.  I figured it was fast enough and additional tinkering didn't speed things up at all
+    (didn't slow down either).
+    
+10. Nah.

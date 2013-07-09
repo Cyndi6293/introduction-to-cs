@@ -1,0 +1,32 @@
+0.  2**24, 256 colours for animated GIF, BMP might be up to 2**32.
+1.  GIF, PNG.
+2.  With lossless compression you do not lose any information, nothing is discarded and you will have
+    the original quality of the image, while image itself will take less space. It just rearranges bits
+    of the file in fancier and smarter way, something like archives do. And you can restore original data from
+    data in lossless-compressed file.
+3.  JPEG.
+4.  When the operating system erases a FAT file, two things occur. First, the system modifies the filename’s 
+    first character in the file’s directory entry to signal that the file has been deleted and that the
+    directory entry can be recycled. Second, the system moves all of the file’s FAT clusters to the hard 
+    drive’s list of free clusters. The actual file data is never touched.
+5.  Delete everything you wanted to hide and then fill your Hard drive with new files to it's full capacity.
+    That will ensure that everything that has ever been deleted is overwritten and cannot be recovered.
+6.  Header that declares sets of integer types with specified widths, and defines corresponding 
+    sets of macros.
+7.  To fit sequences of bits in bitmap file in  properly sized integer variable in our 
+    program (copy.c) according to what each sequence means in BMP file format.
+8.  BYTE - 1, DWORD - 4, a LONG - 4, WORD -2.
+9.  424d.
+10. biSize - DIB Header size, bfSize - file size.
+11. The height of the bitmap, in pixels. If biHeight is positive, the bitmap is a bottom-up DIB and 
+    its origin is the lower-left corner.
+    If biHeight is negative, the bitmap is a top-down DIB and its origin is the upper-left corner.
+12. biBitCount
+13. Permission issues, or not enough space.
+14. We read data from our file into one structure at a time.
+15. 3
+16. Sets the position indicator associated with the stream to a new position.
+    the 3d argument represents the origin point for the function, and  the second 
+    arg is offset from origin. (jump over)
+17. SEEK_CUR, macro, gives current position in file which we are reading .
+18. What manner of creature is that?
