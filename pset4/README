@@ -1,0 +1,47 @@
+copy.c is a program whose sole purpose in life is to create a copy of a BMP, piece by piece
+
+Write a program called whodunit in a file called whodunit.c that reveals Mr. Boddy's drawing.
+
+Ummm, what?
+
+Well, think back to childhood when you held that piece of red plastic over similarly hidden messages. (If you remember no such piece of plastic, best to ask a classmate about his or her childhood.) Essentially, the plastic turned everything red but somehow revealed those messages. Implement that same idea in whodunit. Like copy, your program should accept exactly two command-line arguments. And if you execute a command like the below, stored in verdict.bmp should be a BMP in which Mr. Boddy's drawing is no longer covered with noise.
+
+./whodunit clue.bmp verdict.bmp
+
+Allow us to suggest that you begin tackling this mystery by executing the command below.
+
+cp copy.c whodunit.c
+
+Wink wink. You may be amazed by how few lines of code you actually need to write in order to help Mr. Boddy.
+
+-----------------------------------------------------------------------------------------------------------------
+
+Alright, next challenge! Implement now in resize.c a program called resize that resizes 24-bit uncompressed BMPs by a factor of n. Your program should accept exactly three command-line arguments, per the below usage, whereby the first (n) must be a positive integer less than or equal to 100, the second the name of the file to be resized, and the third the name of the resized version to be written.
+
+Usage: resize n infile outfile
+
+With a program like this, we could have created large.bmp out of small.bmp by resizing the latter by a factor of 4 (i.e., by multiplying both its width and it s height by 4), per the below.
+
+./resize 4 small.bmp large.bmp
+
+You're welcome to get started by copying (yet again) copy.c and naming the copy resize.c. But spend some time thinking about what it means to resize a BMP. (You may assume that n times the size of infile will not exceed 232 - 1.) Decide which of the fields in BITMAPFILEHEADER and BITMAPINFOHEADER you might need to modify. Consider whether or not you'll need to add or subtract padding to scanlines. And be thankful that we don't expect you to support fractional n between 0 and 1! (As we do in the Hacker Edition!) But we do expect you to support n = 1, the result of which should be an outfile with dimensions identical to infile's.
+
+-----------------------------------------------------------------------------------------------------------------
+
+In anticipation of this problem set, I spent the past several days snapping photos of people I know, all of which were saved by my digital camera as JPEGs on a 1GB CompactFlash (CF) card. (It's possible I actually spent the past several days on Facebook instead.) Unfortunately, I'm not very good with computers, and I somehow deleted them all! Thankfully, in the computer world, "deleted" tends not to mean "deleted" so much as "forgotten." My computer insists that the CF card is now blank, but I'm pretty sure it's lying to me.
+
+Write a program in ~/Dropbox/pset4/jpg called recover that recovers these photos.
+
+Ummm.
+
+Okay, here's the thing. Even though JPEGs are more complicated than BMPs, JPEGs have "signatures," patterns of bytes that distinguish them from other file formats. In fact, most JPEGs begin with one of two sequences of bytes. Specifically, the first four bytes of most JPEGs are either
+
+0xff 0xd8 0xff 0xe0
+
+or
+
+0xff 0xd8 0xff 0xe1
+
+from first byte to fourth byte, left to right. Odds are, if you find one of these patterns of bytes on a disk known to store photos (e.g., my CF card), they demark the start of a JPEG. (To be sure, you might encounter these patterns on some disk purely by chance, so data recovery isn't an exact science.)
+
+Fortunately, digital cameras tend to store photographs contiguously on CF cards, whereby each photo is stored immediately after the previously taken photo. Accordingly, the start of a JPEG usually demarks the end of another. However, digital cameras generally initialize CF cards with a FAT file system whose "block size" is 512 bytes (B). The implication is that these cameras only write to those cards in units of 512 B. A photo that's 1 MB (i.e., 1,048,576 B) thus takes up 1048576 ÷ 512 = 2048 "blocks" on a CF card. But so does a photo that's, say, one byte smaller (i.e., 1,048,575 B)! The wasted space on disk is called "slack space." Forensic investigators often look at slack space for remnants of suspicious data.

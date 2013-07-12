@@ -1,0 +1,15 @@
+The challenge ahead is to implement a program called puff that puffs (i.e., decompresses) files that have been huffed (i.e., Huffman-compressed) with a program that we wrote called huff.
+
+Implement in a file called puff.c a program called puff that decompresses huffed files! Allow us to put forth the following requirements.
+
+    Your program must accept two and only two command-line arguments: the name of a file to puff followed by the name under which to save the puffed output. If a user does not provide such, your program should remind the user of its usage and exit, with main returning 1.
+    Your program must ensure that its input is (most likely) indeed huffed by reading, with hread, its first bytes into a Huffeader and checking its magic number and checksum. If its input is not a valid huffed file, your program should inform the user accordingly and exit, with main returning 1. ( You must build Huffman's tree using our APIs for Forests and Trees. That tree must not include nodes for symbols not appearing in the huffed file.
+    After picking two trees from a forest in order to join them as siblings with a new parent, the first tree picked should become the parent's left child, the second the parent's right.
+    Assume that left branches represent 0s and right branches 1s.
+    If puffing a file that contains only one unique symbol, assume the symbol's code is just 0.
+    You must read in bits using our API for Huffiles.
+    You need not ever call bwrite or hwrite, unless you'd also like to implement huff!
+    You must handle all possible errors gracefully by printing error messages and returning 1; under no circumstances should we be able to crash your code.
+    You may not leak any memory. Before quitting, even upon error, your program must free any memory allocated on its heap, either with free or, if allocated by our APIs, with hfclose, rmtree, and/or rmforest.
+    You must update Makefile (however you see fit) with a target for puff. Recall, though, that a target's second line must begin with a tab. Recall, though, that when you hit Tab in gedit, though, you do not get \t but instead four spaces instead by default. To insert a true tab using gedit, uncheck Use Spaces under Tab Width at the bottom of gedit's window. Then can you hit Tab to insert \t.
+

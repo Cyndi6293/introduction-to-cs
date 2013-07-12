@@ -1,0 +1,9 @@
+And now it's time to play. Scramble is a game (currently popular on smart phones) that challenges you to find as many words as possible in a 4×4 grid of letters before a timer expires. Each pair of letters in a word can be adjacent horizontally, vertically, or diagonally. Below, for instance, is what the game looks like on an iPhone (at 4:33am). Present are words like LOTS, NO, NOD, and SUM, along with (believe it or not) 308 other words.
+
+uffice it to say we need your help finishing this implementation of scramble! And just a couple other favors, too, if you don't mind!
+
+    Complete the implementation of draw (using some loops and printf) in such a way that grid[i][j] represents the letter in row i, column j. You're welcome to stray from the aesthetics of the staff's own solution.
+    Complete the implementation of lookup in such a way that the function returns true iff (i.e., if and only if) word is in dictionary. Odds are you can do better than linear search!
+    Complete the implementation of scramble (the function) in such a way that the grid is rotated anytime the user types SCRAMBLE, per the comments therein. Note that this feature doesn't affect the words in the grid; it simply lets the user see them from different perspective.
+    By default, the distribution code is case-sensitive, whereby if FOO is in dictionary, the user must type FOO, not foo, in order to score. Alter main in such a way that the user can type FOO or foo (or even FoO or any other capitalization thereof) in order to score.
+
